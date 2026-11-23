@@ -9,6 +9,10 @@ ROAST = (
     "ran three validators, then asked me to approve the roast first."
 )
 
+# The competition caps the entry at 200 characters: fail loudly if the
+# roast ever grows past the limit instead of writing an invalid entry.
+assert len(ROAST) <= 200, "roast exceeds the 200-character limit"
+
 
 def main() -> None:
     out_path = "/output/entry.txt"
